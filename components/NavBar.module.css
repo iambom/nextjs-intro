@@ -1,8 +1,0 @@
-/* css module: 어디서나 가져다가 써도 클래스네임 뒤에 랜덤 텍스트가 붙어서 충돌날 일 없음 */
-.active {
-  color: tomato;
-}
-
-.link {
-  text-decoration: none;
-}
