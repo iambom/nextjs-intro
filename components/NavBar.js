@@ -5,8 +5,8 @@ export default function NavBar() {
   const router = useRouter();
   return (
     <nav>
-      <Link href="/"><a className="active">HOME</a></Link>
-      <Link href="/about"><a>ABOUT</a></Link>
+      <Link href="/"><a className={router.pathname === "/" ? "active" : ""}>HOME</a></Link>
+      <Link href="/about"><a className={router.pathname === "/about" ? "active" : ""}>ABOUT</a></Link>
       <style jsx>{`
         nav { 
           background-color: pink;
@@ -15,7 +15,7 @@ export default function NavBar() {
           text-decoration: none;
         }
         .active {
-          color: ${props.color}
+          color: tomato;
         }
       `}</style>
     </nav>
