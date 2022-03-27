@@ -7,12 +7,7 @@ import Seo from "../components/Seo";
 export default function Home({ results }) {
   const router = useRouter();
   const onClick = (id, title) => {
-    router.push({
-      pathname: `/movies/${id}`,
-      query: {
-        title
-      }
-    }, `/movies/${id}`) // url 마스킹해서 쿼리가 url에 안 보이게 할 수 있음
+    router.push(`/movies/${title}/${id}`)
   }
 
   return (
@@ -21,15 +16,7 @@ export default function Home({ results }) {
       {results?.map(movie => (
         <div onClick={() => onClick(movie.id, movie.original_title)} className="movie" key={movie.id}>
           <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
-          <Link 
-              href={{
-                pathname: `/movies/${movie.id}`,
-                query: {
-                  title: movie.original_title,
-                },
-              }}
-              as={`/movies/${movie.id}`}
-            >
+          <Link href={`/movies/${movie.original_title}/${movie.id}`}>
             <a>
               <h4>{movie.original_title}</h4>
             </a>
